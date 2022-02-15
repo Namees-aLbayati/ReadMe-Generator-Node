@@ -38,11 +38,39 @@ const questions=[
 
 
 function genfun({Title,Description,Dep,use,Author,AuthorE,AuthorG}){
-    return `    # project Name
-    ${Title} 
-    # Description
+    return ` 
+    # ${Title}
+// [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/${Author}/${Title})
+
+# Description
 
 ${Description}
+
+# Table of Contents 
+
+* [Installation](#installation)
+
+* [Usage](#usage)
+
+* [License](#license)
+
+* [Questions](#questions)
+
+# Installation
+
+The following necessary dependencies must be installed to run the application properly: ${Dep}
+
+# Usage
+
+​This application is used for ${use}
+
+
+
+# Questions
+
+If you have any questions about the repo, open an issue or contact ${AuthorG} directly ${AuthorE}.
+
+
 `
     
 }
