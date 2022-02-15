@@ -1,0 +1,22 @@
+{
+  "name": "inquirer",
+  "version": "1.0.0",
+  "description": "bulid readme.md generator project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namees-github/ReadMe-Generator-Node.git"
+  },
+  "author": "Namees Albayati",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/namees-github/ReadMe-Generator-Node/issues"
+  },
+  "homepage": "https://github.com/namees-github/ReadMe-Generator-Node#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
