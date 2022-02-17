@@ -1,9 +1,9 @@
  
-    # readme 
+    # READ ME GENERATOR 
 
 # Description
 
-generate
+generate quick read me file
 
 # Table of Contents 
 
@@ -21,13 +21,13 @@ The following necessary dependencies must be installed to run the application pr
 
 # Usage
 
-​This application is used for usage
+​This application is used for quick readme generator
 
 
 
 # Questions
 
 If you have any questions about the repo, open an issue or contact nameesgithub directly nameesmohammed12@gmail.com.
- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/NameesMohammed/readme )
+ [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/NameesMohammed/READ ME GENERATOR )
 
 
