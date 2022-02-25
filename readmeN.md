@@ -1,9 +1,9 @@
 
   # Project Name
-  Project
+  Readme Generator
   # Project Description
         
-  project Description/Required
+  Generate Readme.md file 
         
   # Table of Contents :
 
@@ -36,23 +36,23 @@
         
         
 
-  # programming language To bulid ## Project  assignment?
-        Html
+  # programming language To bulid ## Readme Generator  assignment?
+        javascript
 
   # Installation Guid 
-      None
+      npm inquirer package
 
   # Usage
         
-      This application is used for this purposes usage
-      Running # Project Project following these instructions: Running
+      This application is used for this purposes generate quick README.md generator for explain the steps and the important hints through bulding that assignmemt 
+      Running # Readme Generator Project following these instructions: terminal/command line
 
 
   # Contributors
         None
         
   # GitHub License
-  [![License](https://img.shields.io/badge/License-MIT%202.0-blue.svg)](https://opensource.org/licenses/MIT)]
+  [![License](https://img.shields.io/badge/License-GPL%202.0-blue.svg)](https://opensource.org/licenses/GPL)]
 
 
         
@@ -60,7 +60,7 @@
   # Questions
         
         If you have any questions about the repo, open an issue or contact https://github.com/namees-github directly nameesmohammed12@gmail.com.
-         [Contact information](https://github.com/NameesMohammed/Project)
+         [Contact information](https://github.com/NameesMohammed/Readme Generator)
         
         
         
