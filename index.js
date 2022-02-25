@@ -1,151 +1,172 @@
-const inquirer=require('inquirer');
-const fs=require('fs');
+const inquirer = require('inquirer');
+const fs = require('fs');
+// const { title } = require('process');
 
-const questions=[
-    {
-        type: "input",
-        message: "Project Name?",
-        name: "Title",
-        default:'Project',
-      },
-      {
-        type: "input",
-        message: "Please give description of your project.",
-        name: "Description",
-        default:'project Description/Required'
+const questions = [
+  {
+    type: "input",
+    message: "Project Name?",
+    name: "title",
+    default: 'Project',
+  },
+  {
+    type: "input",
+    message: "Project Description",
+    name: "Description",
+    default: 'project Description/Required'
 
-      },
-      {
-        type: "input",
-        message: "how many programming language use to bulid it",
-        name: "Lang",
-        default:'Html'
+  },
+  {
+    type: "input",
+    message: "how many programming language use to bulid it",
+    name: "Lang",
+    default: 'Html'
 
-      },{
-        type: "input",
-        message: "What is this app used for?",
-        name: "use",
-        default:'usage'
+  }, {
+    type: 'input',
+    massage: 'installation instructions',
+    name: 'install',
+    default: 'None'
 
-      },{
-        type: "input",
-        message: "how can the user run this project?",
-        name: "run",
-        default:'Running'
+  },
+  {
+    type: "input",
+    message: "Program Usage?",
+    name: "use",
+    default: 'usage'
 
-      },
-      {
-        type: "input",
-        message: "Developer this project Name?",
-        name: "Author",
-        default:'NameesMohammed'
+  }, {
+    type: "input",
+    message: "how can the user run this project?",
+    name: "run",
+    default: 'Running'
 
-      },{
-        type: "input",
-        message: "Developer GitHub Account?",
-        name: "AuthorG",
-        default:'nameesgithub'
+  }, {
+    type: "input",
+    message: "contributors names",
+    name: "contribution",
+    default: 'None'
+  }, {
+    type: "list",
+    message: "choose license you would like to add?",
+    name: "License",
+    choices: ["MIT",
+      "Apache 2.0",
+      "GPL",
+      "Boost Software 1.0",
+      "BSD 2-clause",
+      "BSD 3-clause ",],
+      default:"MIT"
+  },
 
-      },
-      {
-        type: "input",
-        message: "Developer Email Account?",
-        name: "AuthorE",
-        default:'nameesmohammed12@gmail.com'
+  {
+    type: "input",
+    message: "Developer's name'?",
+    name: "Author",
+    default: 'NameesMohammed'
 
-      }];
-      
-      function genfun({Title,Description,Lang,use,run,Author,AuthorE,AuthorG}){
-        return `
-        # Project Name
+  }, {
+    type: "input",
+    message: "GitHub Profile URL",
+    name: "AuthorG",
+    default: 'https://github.com/namees-github'
+  },
+  {
+    type: "input",
+    message: "Developer Email Account?",
+    name: "AuthorE",
+    default: 'nameesmohammed12@gmail.com'
 
-         ${Title}
+  }];
 
-        # Description
+function genfun({ title, Description, Lang, install, use, run, contribution, License, Author, AuthorE, AuthorG }) {
+  return `
+  # Project Name
+  ${title}
+  # Project Description
         
-        ${Description}
+  ${Description}
         
-        # Table of Contents 
+  # Table of Contents :
+
         
-        *  Project Description/Title
+  *  [Project Title](#title)     
+  *  [Project Description/Title](#Description)
+  
+  *  [Programming language used](#Lang)
+  *  [Usage](#use)
+  *  [Running Guid](#run)
+  *  [Contributors names](#Contribution)
+  *  [Author Name](#Author)
+  *  [Author Email](#AuthorE)
+  *  [Author GitHub Account](#AuthorG)
+  * [License](#license)
+  * [Questions](#Author)
         
-        *  [Usage](#usage)
+
+  # User Stroy
+      User Story
+      1.   I a command-line application that accepts user input.
+      2.   I want to be prompted for information about my application repository.
+      3.   I want a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contribution Guidelines, Tests Instructions, and Questions.
+      4.   I want my project title to display as the title of the README.
+      5.   I want a description, installation instructions, usage information, contribution guidelines, and test instructions; and then, this information is added to the sections of the README entitled Description, Installation, Usage, Contribution Guidelines, and Tests Instructions.
+      6.   I want to choose a license for my application from a list of options; and then a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under.  
+      7.   I want to enter my GitHub username; ant then this is added to the section of the README entitled Questions, with a link to my GitHub profile.
+      8.   I want to enter my email address; and then this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions.
+      9.   I want to click on the links in the Table of Contents; and then, I am taken to the corresponding section of the README.
         
-        * [License](#license)
         
-        * [Questions](#questions)
+
+  # programming language To bulid ## ${title}  assignment?
+        ${Lang}
+
+  # Installation Guid 
+      ${install}
+
+  # Usage
+        
+      This application is used for this purposes ${use}
+      Running # ${title} Project following these instructions: ${run}
+
+
+  # Contributors
+        ${contribution}
+        
+  # GitHub License
+  [![License](https://img.shields.io/badge/License-${License}%202.0-blue.svg)](https://opensource.org/licenses/${License})]
+
+
         
         
-        # Usage
-        
-        ​This application is used for ${use}
-        the User can run it by this steps: ${run}
-        
-        
-        
-        # Questions
+  # Questions
         
         If you have any questions about the repo, open an issue or contact ${AuthorG} directly ${AuthorE}.
-         [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/${Author}/${Title})
+         [Contact information](https://github.com/${Author}/${title})
         
         
         `
-      }
-      function init(){
-        inquirer.prompt(questions)
-  .then((answers) => {
-    
-console.log(answers)
-    let filename="readmeN.md"
-    fs.writeFile("readmeN.md",genfun(answers),(error)=>{
-      if(error){
-        console.log('there is an ERROR')
-      }else{
-console.log("your Read Me file created successfully!!")
-      }
-      
-    })
-  });}
-      init()
-
-
-
-function genfun({Title,Description,Dep,use,Author,AuthorE,AuthorG}){
-    return ` 
-    # ${Title}
-
-# Description
-
-${Description}
-
-# Table of Contents 
-
-*  Project Description/Title
-
-*  [Usage](#usage)
-
-* [License](#license)
-
-* [Questions](#questions)
-
-# Installation
-
-The following necessary dependencies must be installed to run the application properly: ${Dep}
-
-# Usage
-
-​This application is used for ${use}
-
-
-
-# Questions
-
-If you have any questions about the repo, open an issue or contact ${AuthorG} directly ${AuthorE}.
- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/${Author}/${Title})
-
-
-`
-    
 }
+function init() {
+  inquirer.prompt(questions)
+    .then((answers) => {
+
+      console.log(answers)
+      let filename = "readmeN.md"
+      fs.writeFile("readmeN.md", genfun(answers), (error) => {
+        if (error) {
+          console.log('there is an ERROR')
+        } else {
+          console.log("your Read Me file created successfully!!")
+        }
+
+      })
+    });
+}
+init()
+
+
+
+
 
 
