@@ -3,7 +3,7 @@
   Readme Generator
   # Project Description
         
-  Generate Readme.md file 
+  generate readme.md file
         
   # Table of Contents :
 
@@ -44,8 +44,8 @@
 
   # Usage
         
-      This application is used for this purposes generate quick README.md generator for explain the steps and the important hints through bulding that assignmemt 
-      Running # Readme Generator Project following these instructions: terminal/command line
+      This application is used for this purposes generate readme.md file to explain the guid of buliding user assignmemt 
+      Running # Readme Generator Project following these instructions: terminal or command line
 
 
   # Contributors
